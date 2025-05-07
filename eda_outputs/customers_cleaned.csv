@@ -1,4 +1,4 @@
-customerid,gender,location,tenure_months
+customer_id,gender,location,tenure_months
 17850,M,Chicago,12
 13047,M,California,43
 12583,M,Chicago,33

@@ -1,11 +1,11 @@
 # E-commerce Marketing and Sales Analysis
 
-## 📜 Business Context
+## Business Context
 
 The objective of this project is to leverage data-driven insights to enhance customer acquisition, retention, and revenue optimization for an e-commerce business.
 We analyze transactions, marketing spend, discount strategies, customer behavior, and product performance over the year 2019.
 
-## 🗃️ Dataset Description
+## Dataset Description
 
 This project uses five datasets provided by the business:
 
@@ -17,7 +17,7 @@ This project uses five datasets provided by the business:
 | `Marketing_Spend.csv` | Daily online & offline marketing spend                                             |
 | `Tax_Amount.csv`      | GST rates by product category                                                      |
 
-All source tables have been cleaned and saved to **`eda_outputs/*.parquet`**:
+All source tables have been cleaned and saved to **`eda_outputs/*.csv`**:
 
 | File                          | Rows  | Key Columns                                                  |
 |-------------------------------|-------|--------------------------------------------------------------|
@@ -33,26 +33,65 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 
 ## 3. Analysis Outline & Business Questions
 
-1. **Acquisition Seasonality**:      Which months over/under-perform vs. average?  
-2. **Next-Month Retention**:         Cohort retention rates by acquisition month  
-3. **Retention Drivers**:            Coupon usage, order value, product mix  
-4. **New vs. Existing Revenue**:     Monthly revenue split & trends  
-5. **Coupon vs. Revenue**:           Avg. order revenue by discount % & revenue share  
-6. **Top Products**:                 Identify top 10 SKUs by revenue & their characteristics  
-7. **Marketing ROI**:                Overall ROI (revenue ÷ spend) by month  
-8. **Channel Effectiveness**:        Offline vs. online ROI & reallocation opportunities
-9. **Channel Effectiveness**:        Offline vs. online ROI & reallocation opportunities  
-10. **RFM Segmentation**:            Segment customers (Premium, Gold, Silver, Standard)  
-11. **Segment Contribution**:        Revenue share & avg. revenue per segment  
-12. **Retention Heatmap**:           Cohort retention matrix & cohort-period comparison  
-13. **Customer LTV**:                Average LTV by acquisition month  
-14. **Coupon Impact**:               Statistical test of coupon vs. no-coupon order value  
-15. **Demographics & Pricing**:      ANOVA tests across location, tenure, delivery tiers  
-16. **Tenure & Frequency**:          Does tenure drive purchase frequency?  
-17. **Delivery Charges Impact**:     Order behavior & ANOVA by delivery tier  
-18. **Taxes & Spending**:            GST tiers vs. spend; correlation with delivery charge  
-19. **Seasonality by Category & Location**:  Monthly revenue trends by category & by state  
-20. **Daily & Weekly Patterns**:     Daily revenue time series & avg. weekday performance  
+1. **Acquisition Peaks & Troughs**  
+   Identify the months with the highest and lowest customer acquisition rates.  
+
+2. **Acquisition Seasonality Consistency**  
+   Analyze whether certain months consistently over- or under-perform and how to capitalize on strong periods or shore up weak ones.  
+
+3. **Next-Month Retention**  
+   Compute cohort-based next-month retention rates by acquisition month.  
+
+4. **Retention Drivers in High-Retention Months**  
+   Examine coupon usage, average order value and product mix for cohorts with strongest retention.  
+
+5. **New vs. Existing Revenue Split**  
+   Compare month-over-month revenue contributions from new versus existing customers.  
+
+6. **Coupon Usage vs. Revenue**  
+   Plot average order value by effective discount % and share of total revenue by discount tier.  
+
+7. **Top Products by Revenue**  
+   Identify the top 10 SKUs by total revenue and summarize their coupon rate, avg. price, discount and category.  
+
+8. **Overall Marketing ROI**  
+   Calculate monthly ROI as total revenue ÷ total (online + offline) marketing spend.  
+
+9. **Channel ROI Comparison**  
+   Break out ROI for offline versus online spend and assess reallocation opportunities.  
+
+10. **RFM Segmentation**  
+    Segment customers into Premium, Gold, Silver and Standard using Recency, Frequency & Monetary scoring.  
+
+11. **Segment Revenue Contribution**  
+    Measure each segment’s total revenue share and average revenue per customer.  
+
+12. **Cohort Retention Heatmap**  
+    Build a cohort × period retention matrix (first 6 months) and compare cohort performance.  
+
+13. **Customer Lifetime Value**  
+    Compute average LTV by acquisition month and identify high-LTV cohorts.  
+
+14. **Coupon Impact on AOV**  
+    Perform a t-test to compare avg. order value of orders with versus without coupons.  
+
+15. **Demographics & Pricing ANOVA**  
+    Test for differences in order value across locations, tenure groups and delivery-charge tiers.  
+
+16. **Tenure vs. Purchase Frequency**  
+    Analyze whether customer tenure groups differ in average purchase frequency.  
+
+17. **Delivery-Charge Impact**  
+    Compare order count, avg. quantity and avg. order value by delivery-charge tier (ANOVA).  
+
+18. **Taxes & Spending Behavior**  
+    Evaluate spending differences across GST tiers and correlate delivery charge with spend.  
+
+19. **Seasonality by Category & Location**  
+    Plot monthly revenue trends by product category and by customer location.  
+
+20. **Daily & Weekly Sales Patterns**  
+    Visualize daily revenue time series and average revenue by weekday to spot high-/low-performing days.  
 
 ---
 
@@ -71,40 +110,7 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 
 ---
 
-## 4. Key Visualizations
-
-- **Acquisition Seasonality**  
-  ![New Customer Acquisitions by Month](images/acquisition_seasonality.png)
-
-- **Next-Month Retention Rates**  
-  ![Retention by Cohort Month](images/next_month_retention.png)
-
-- **Coupon Usage vs. Avg. Revenue**  
-  ![Avg Order by Discount %](images/discount_revenue.png)
-
-- **Marketing ROI (Overall & by Channel)**  
-  ![Monthly Marketing ROI](images/marketing_roi.png)  
-  ![Offline vs. Online ROI](images/channel_roi.png)
-
-- **RFM Segment Contribution**  
-  ![Revenue Share by Segment](images/segment_revenue_share.png)
-
-- **Cohort Retention Heatmap**  
-  ![Cohort Retention Matrix](images/cohort_heatmap.png)
-
-- **Customer LTV by Month**  
-  ![Avg LTV by Acquisition Month](images/ltv_by_month.png)
-
-- **Location & Category Seasonality**  
-  ![Revenue by Location](images/revenue_by_location.png)  
-  ![Revenue by Category](images/revenue_by_category.png)
-
-- **Daily & Weekly Trends**  
-  ![Daily Revenue Time Series](images/daily_revenue.png)  
-  ![Avg Revenue by Weekday](images/weekday_revenue.png)
-
----
-## 5. Insights & Recommendations
+## 4. Key Visualizations, Insights & Recommendations
 
 **Q1. Identify the months with the highest and lowest acquisition rates. What strategies could be implemented to address the fluctuations and ensure consistent growth throughout the year?**  
 **Insight:**  
@@ -119,6 +125,11 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - The same months repeat as strong (Jan, Mar, Apr) and weak (Sep, Nov, Feb).  
 **Recommendation:** Pre-plan major product launches or bundle offers in Jan/Mar/Apr; use “early bird” discounts or loyalty bonuses to lift acquisitions in traditionally slow months.
 
+**Result dataset**: ![New Customer Acquisitions by Month data](eda_outputs/acquisation_seasonality.csv)
+
+
+![New Customer Acquisitions by Month chart](images/acquisation_seasonality.png)
+
 ---
 
 **Q3. Identify periods with the strongest and weakest retention rates. What strategies could be implemented to improve retention during weaker months?**  
@@ -127,12 +138,21 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - **Lowest**: September (8%), December (0%*).  
 **Recommendation:** Deploy post-purchase nurture flows (educational tips, cross-sell coupons) for cohorts acquired in weak months (Sep, Oct, Nov).
 
+**Result dataset**: ![Retention by Month data](eda_outputs/next_month_retention.csv)
+
+![Retention by Month chart](images/next_month_retention.png)
+
 ---
 
 **Q4. Analyze customer behavior during high-retention months and suggest ways to replicate this success throughout the year.**  
 **Insight:**  
 - High-retention cohorts (Jun/Jul) have coupon usage ~42–35% but lower avg. order values ($55–$69).  
 **Recommendation:** Promote moderate-value coupons (10–20%) in other months to drive repeat visits; pair with “bundles” to preserve overall AOV.
+
+**Result dataset**: ![Retention Drivers data](eda_outputs/retention_drivers.csv)
+
+![Average order value for high retention chart](images/avg_order_value.png)
+![Coupon usage rate for high retention chart](images/coupon_usage.png)
 
 ---
 
@@ -141,12 +161,22 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - Jan–Mar revenue is 84–100% from **new** customers; by July onward **existing** contribute ~50–60%.  
 **Recommendation:** Early in year focus on acquisition; mid-year shift budget toward loyalty programs (rewards, subscription) to convert new buyers into repeat.
 
+**Result dataset**: ![Revenue generated by new and existing customer data](eda_outputs/revenue_new_existing.csv)
+
+![Revenue generated by new and existing customer chart](images/next_month_retention.png)
+![Revenue generated by new and existing percentage customer chart](images/revenue_new_existing_perc.png)
+
 ---
 
 **Q6. Analyze the relationship between coupon usage and revenue generation. How can discount strategies be optimized to maximize revenue while maintaining profitability?**  
 **Insight:**  
 - 0%-discount orders drive 66.8% of total revenue (avg $88.7). 10–30% discounts each contribute ~11% share with avg $85–$89 AOV.  
 **Recommendation:** Reserve deep discounts for clearance; use free-shipping thresholds or site-wide flash deals to protect margins while still incentivizing volume.
+
+**Result dataset**: ![Coupon vs revenue data](eda_outputs/coupon_vs_revenue.csv)
+
+![Coupon vs revenue percentage chart](images/coupon_vs_revenue_perc.png)
+![Average order discount revenue chart](images/discount_avg_revenue.png)
 
 ---
 
@@ -155,6 +185,10 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - Top 3 SKUs (3rd-gen Thermostat, Outdoor Cam, Indoor Cam) each >$500K revenue, coupon rates ~32–34%, avg discount ~6–7%.  
 **Recommendation:** Prioritize these hero products for high-visibility banners, maintain buffer stock, and create bundles (e.g. camera + alarm) to drive incremental attach.
 
+**Result dataset**: ![Top products data](eda_outputs/top_products.csv)
+
+![Top products chart](images/top_products.png)
+
 ---
 
 **Q8. Analyze the relationship between monthly marketing spend and revenue. Are there any months where marketing efforts yielded disproportionately high or low returns? How can marketing strategies be adjusted to improve ROI?**  
@@ -162,12 +196,21 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - Average ROI ~2.6×. **Best** in November (3.16×) and July (3.10×); **weakest** in February (2.27×).  
 **Recommendation:** Shift incremental budget into Nov/Jul; test new channels or creative in Feb before pulling back.
 
+**Result dataset**: ![Monthly Marketing ROI data](eda_outputs/marketing_roi.csv)
+
+![Monthly Marketing ROI chart](images/marketing_roi.png)
+![Monthly Marketing ROI chart](images/marketing_roi_monthly.png)
+
 ---
 
 **Q9. Evaluate the effectiveness of marketing campaigns by comparing marketing spend to revenue generated. Are there opportunities to reallocate resources for better results?**  
 **Insight:**  
 - **Online** ROI is 6–7× vs. **Offline** ~4–5× each month.  
 **Recommendation:** Reallocate a portion of traditional/offline budget into high-ROI digital channels (search, social), especially in lower-performance months.
+
+**Result dataset**: ![Monthly Marketing Offline vs Online data](eda_outputs/channel_roi.csv)
+
+![Monthly Marketing Offline vs Online chart](images/channel_roi.png)
 
 ---
 
@@ -178,6 +221,10 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
   - **Premium:** VIP early access, exclusive drops.  
   - **Gold/Silver:** Tiered loyalty points, value bundles.  
   - **Standard:** Introductory promotions (“welcome back” coupons) to boost frequency.
+
+**Result dataset**: ![Customer segmentation data](eda_outputs/segment_counts.csv)
+
+![Customer segmentation chart](images/segment_counts.png)
 
 ---
 
@@ -191,6 +238,11 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
   - Design upgrade incentives (point multipliers) to move Gold/Silver → Premium.  
   - Offer low-barrier incentives (small freebies) to engage Standard.
 
+**Result dataset**:  ![Revenue Share by Segment data](eda_outputs/segment_rev.csv)
+
+![Revenue Share by Segment chart](images/segment_rev_cust.png)
+![Avg Revenue Share by Segment chart](images/avg_segment_rev.png)
+
 ---
 
 **Q12. Group customers by their month of first purchase and analyze retention rates over time. Which cohorts exhibit the highest and lowest retention rates? What strategies can be implemented to improve retention for weaker cohorts?**  
@@ -200,6 +252,10 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 **Recommendation:**  
   - Trigger proactive re-engagement campaigns at month-2 for cohorts acquired Jun–Sep.  
   - Test limited-time “renewal” discounts or educational content (product tips) to sustain engagement.
+
+**Result dataset**: ![Cohort Retention rates data](eda_outputs/retention_rates.csv)
+
+![Cohort Retention Matrix chart](images/cohort_retention.png)
 
 ---
 
@@ -211,6 +267,10 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
   - Scale up acquisition in Jan/Feb via top-performing channels.  
   - For weaker-LTV months (Jun–Sep), offer bundled onboarding incentives to accelerate spend.
 
+**Result dataset**:  ![Avg LTV by Acquisition Month data](eda_outputs/ltv_cohort.csv)
+
+![Avg LTV by Acquisition Month chart](images/ltv_cohort.png)
+
 ---
 
 **Q14. Do customers who use coupons have a different average transaction value compared to those who do not? Conduct a statistical test to validate this hypothesis. What implications does this have for the company’s discount and coupon strategies?**  
@@ -218,6 +278,14 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - Coupon users (n=17,904) avg $97.65 vs. non-users (n=35,020) $99.35; t=–1.084, p=0.278 → **no significant difference**.  
 **Recommendation:**  
   - Coupons can be used broadly without eroding AOV; safely deploy targeted coupon campaigns to drive incremental orders.
+
+| Group            | N      | Avg Transaction Value ($) |
+|------------------|--------|---------------------------|
+| **Used Coupon**      | 17,904 | 97.65                     |
+| **No Coupon Used**   | 35,020 | 99.35                     |
+
+- **t‐statistic:** -1.084  
+- **p‐value:** 0.2785  
 
 ---
 
@@ -229,6 +297,37 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
   - Implement dynamic free-shipping thresholds to nudge mid-tier shoppers into higher cart values.  
   - Location-agnostic pricing is validated; focus on delivery incentives instead.
 
+#### Mean Purchase Metrics by Group
+
+**By Location**  
+| Location       | Mean Frequency | Mean Avg Transaction Value ($) |
+|----------------|---------------:|-------------------------------:|
+| California     |          17.37 |                          95.93 |
+| Chicago        |          20.36 |                          99.04 |
+| New Jersey     |          15.36 |                          98.63 |
+| New York       |          17.24 |                          94.28 |
+| Washington DC  |          18.89 |                         112.29 |
+
+**By Tenure Group**  
+| Tenure Group | Mean Frequency | Mean Avg Transaction Value ($) |
+|--------------|---------------:|-------------------------------:|
+| <1yr         |          17.65 |                          98.33 |
+| 1–3yr        |          18.63 |                          95.69 |
+| >3yr         |          17.67 |                         100.53 |
+
+**By Delivery-Charge Tier**  
+| Delivery Tier | Mean Frequency | Mean Avg Transaction Value ($) |
+|---------------|---------------:|-------------------------------:|
+| Low (≤5)      |          31.00 |                         106.51 |
+| Mid (5–10)    |          17.99 |                          95.13 |
+| High (>10)    |          18.83 |                         110.00 |
+
+#### B. ANOVA Test Results (Avg Transaction Value)
+
+- **Location:** F = 1.59, p = 0.175 (no significant difference)  
+- **Tenure Group:** F = 0.91, p = 0.402 (no significant difference)  
+- **Delivery-Charge Tier:** F = 6.56, p = 0.001 (significant difference)
+
 ---
 
 **Q16. Does customer tenure impact purchase frequency? Analyze the relationship between customer tenure and purchase frequency. How can this insight be used to improve customer engagement and retention strategies?**  
@@ -236,6 +335,21 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - Frequency by tenure group (<1 yr/1–3 yr/>3 yr) shows no significant difference (p=0.760).  
 **Recommendation:**  
   - Tenure alone isn’t a predictor—leverage RFM segments rather than tenure for targeted engagement.
+
+![Frequency by Tenure data](eda_outputs/freq_summary.csv)
+
+**Purchase Frequency by Tenure Group**  
+| Tenure Group | Count | Mean Frequency | Std Dev | Min | 25% | 50% | 75% | Max  |
+|--------------|------:|---------------:|--------:|----:|----:|----:|----:|-----:|
+| <1yr         | 327   |          17.65 |   20.37 |  1.0|  5.0| 11.0| 24.5| 177.0|
+| 1–3yr        | 727   |          18.63 |   28.08 |  1.0|  5.0| 11.0| 23.5| 328.0|
+| >3yr         | 414   |          17.67 |   22.40 |  1.0|  5.0| 11.0| 23.0| 291.0|
+
+**ANOVA Test**  
+- F-statistic = 0.27  
+- p-value     = 0.760  
+
+> p-value > 0.05 ⇒ no statistically significant difference in purchase frequency across tenure cohorts.
 
 ---
 
@@ -245,6 +359,8 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - ANOVA on AOV by tier p<0.001.  
 **Recommendation:**  
   - Offer tiered shipping (e.g. express paid vs. standard free above threshold) to boost both quantity and cart size.
+
+![Delivery charge to customer behaviour data](eda_outputs/order_metrics.csv)
 
 ---
 
@@ -256,6 +372,8 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
   - For high-GST products, bundle with service guarantees or loyalty points to improve perceived value.  
   - Maintain transparent “tax-inclusive” pricing to reduce checkout friction.
 
+![Delivery/Tax charges to customer behaviour data](eda_outputs/gst_summary.csv)
+
 ---
 
 **Q19. Identify seasonal trends in sales by category and location. How can the company prepare for peak and off-peak seasons to maximize revenue?**  
@@ -264,6 +382,13 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 - **California/Chicago** account for ~50% of monthly revenue; New Jersey/DC more volatile.  
 **Recommendation:**  
   - Stock levels for “nest-usa” heavier into holiday season; run region-specific flash sales in lower-revenue markets (NJ, DC) during summer.
+
+**Result dataset**: 
+![Revenue by Location data](eda_outputs/location_season.csv)
+![Revenue by Category data](eda_outputs/category_season.csv)
+
+![Revenue by Location chart](images/location_season.png)
+![Revenue by Category chart](images/category_season.png)
 
 ---
 
@@ -274,11 +399,18 @@ Data Period: **1st Jan 2019 to 31st Dec 2019**
 **Recommendation:**  
   - Launch mid-week flash “happy hour” promotions; execute “weekend warmers” (free-gift w/ purchase) to lift Sunday/Monday sales.
 
+**Result dataset**: 
+![Daily Revenue Time Series data](eda_outputs/weekday_summary.csv)
+![Avg Revenue by Weekday data](eda_outputs/daily_ts.csv)
+
+![Daily Revenue Time Series chart](images/weekday_summary.png)
+![Avg Revenue by Weekday chart](images/daily_ts.png)
+
 ---
 
 ## 6. Documentation & Reproducibility
 
-Notebook: analysis.ipynb contains all data-loading, cleaning, analysis, and plotting code with detailed comments.
+Notebook: marketing_analysis.ipynb contains all data-loading, cleaning, analysis, and plotting code with detailed comments.
 
 Data Files: Cleaned CSVs and Parquet files in /eda_outputs directory.
 
